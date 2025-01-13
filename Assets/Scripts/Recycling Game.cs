@@ -10,25 +10,50 @@ public class RecyclingGame : MonoBehaviour
 
     public List<GameObject> recyclingBins;  
     public GameObject[] wastePrefabs;  
-    public Transform conveyorBelt;  
-    public float conveyorSpeed = 2f;  
+    public Transform conveyorBelt; 
+    
+    public float conveyorSpeed = 1f;  
+    public float spawnRepeateRate = 4f;
+
     public Transform spawnPoint;
     public TextMeshProUGUI scoreText;  
+    public TextMeshProUGUI LevelText;  
     public int score = 0;  
 
     public GameObject mixedTrashBin;
 
     private List<GameObject> activeWastes = new List<GameObject>();
+    private int NextLevelPoint = 100;
 
     void Start()
     { 
-        InvokeRepeating("SpawnWaste", 1f, 2f);  
+        InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);  
         UpdateScore();
     }
 
     void Update()
     { 
         MoveWastes();
+    }
+    void PreviousLevel()
+    {
+        NextLevelPoint -= 100;
+        conveyorSpeed /= 1.5f;
+        spawnRepeateRate += 0.5f;
+        CancelInvoke();
+        InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);
+    }
+    void NextLevel()
+    {
+        NextLevelPoint += 100;
+        conveyorSpeed *= 1.5f;
+        spawnRepeateRate -= 0.5f;
+        if (spawnRepeateRate < 1f)
+        {
+            spawnRepeateRate = 1f;
+        }
+        CancelInvoke();
+        InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);
     }
 
     void SpawnWaste()
@@ -103,5 +128,17 @@ public class RecyclingGame : MonoBehaviour
    public void UpdateScore()
     {
         scoreText.text = "Puan: " + score;
+
+        if(score == NextLevelPoint)
+        {
+            Debug.Log("Next Level");
+            NextLevel();
+            LevelText.text = "Level: " + NextLevelPoint / 100 ;
+        }else if (score == NextLevelPoint - 100 && score != 0)
+        {
+            Debug.Log("Previous Level");
+            PreviousLevel();
+            LevelText.text = "Level: " + NextLevelPoint / 100;  
+        }
     }
 }
