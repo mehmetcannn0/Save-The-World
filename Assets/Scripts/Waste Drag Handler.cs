@@ -16,7 +16,7 @@ public class WasteDragHandler : MonoBehaviour
         if (Input.touchCount > 0)
         {
             Touch touch = Input.GetTouch(0);
-            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, 0));
+            Vector3 touchPosition = Camera.main.ScreenToWorldPoint(new Vector3(touch.position.x, touch.position.y, -2));
 
             switch (touch.phase)
             {
@@ -31,7 +31,7 @@ public class WasteDragHandler : MonoBehaviour
                 case TouchPhase.Moved:
                     if (isDragging)
                     {
-                        transform.position = new Vector3(touchPosition.x, touchPosition.y, 0);
+                        transform.position = new Vector3(touchPosition.x, touchPosition.y, -2);
                     }
                     break;
 
