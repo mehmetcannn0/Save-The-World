@@ -44,7 +44,7 @@ public class ScreenAdjuster : MonoBehaviour
     void ArrangeRecyclingBins()
     {
         Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        float yOffset = screenBounds.y * 1.55f; 
+        float yOffset = screenBounds.y * 1.4f; 
         float spacing = screenBounds.x * 2 / recyclingBins.Length; 
 
         for (int i = 0; i < recyclingBins.Length; i++)

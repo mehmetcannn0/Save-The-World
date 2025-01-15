@@ -994,7 +994,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a121aecd889f17c46951e0fb5ecfcff9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1062,6 +1062,14 @@ MonoBehaviour:
   mixedTrashBin: {fileID: 1496007510}
   NextLevelPoint: 100
   level: 1
+  health: 3
+  heartsUI:
+  - {fileID: 1171155833}
+  - {fileID: 763378480}
+  - {fileID: 1004618256}
+  hearts:
+  - {fileID: 21300000, guid: 6743aa0d323bd0141aaea100ea8ae5a1, type: 3}
+  - {fileID: 21300000, guid: a121aecd889f17c46951e0fb5ecfcff9, type: 3}
   resultEffectUI: {fileID: 696338918}
   pauseScreenUI: {fileID: 1457065707}
   gameOverScreenUI: {fileID: 2036861659}
@@ -1164,10 +1172,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -1404,7 +1412,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a121aecd889f17c46951e0fb5ecfcff9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1853,10 +1861,10 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 36
+  m_fontSize: 44.75
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 1
@@ -1960,7 +1968,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a121aecd889f17c46951e0fb5ecfcff9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2439,7 +2447,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.39, y: 1.55}
+    oldSize: {x: 1.21, y: 1.55}
     newSize: {x: 1.39, y: 1.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0

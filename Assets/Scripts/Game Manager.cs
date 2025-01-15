@@ -26,6 +26,10 @@ public class RecyclingGame : MonoBehaviour
     private List<GameObject> activeWastes = new List<GameObject>();
     public int NextLevelPoint = 100;
     public int level = 1;
+    public int health = 3;
+    public GameObject[] heartsUI;
+    public Sprite[] hearts;
+
 
     public GameObject resultEffectUI;
     public GameObject pauseScreenUI;
@@ -89,6 +93,9 @@ public class RecyclingGame : MonoBehaviour
 
                     Debug.Log("banttan cýktý " + waste.gameObject.tag);
                     score -= 10;
+                    heartsUI[health].GetComponent<Image>().sprite= hearts[0];
+                    health -= 1;
+
                     WrongBin();
                     UpdateScore();
 
@@ -118,7 +125,10 @@ public class RecyclingGame : MonoBehaviour
                 else
                 {
                     Debug.Log("Yanlýþ kategoriye atýldý: " + bin.gameObject.tag);
-                    score -= 10;  
+                    score -= 10;
+                    heartsUI[health-1].GetComponent<Image>().sprite = hearts[0];
+
+                    health -= 1;
                     WrongBin();
                     UpdateScore();
                     Destroy(waste);
@@ -153,6 +163,11 @@ public class RecyclingGame : MonoBehaviour
         level = NextLevelPoint / 100;
 
         LevelText.text = "Level: " + level;
+        if (health == 0)
+        {
+            GameOver();
+        }
+
 
     }
     void WrongBin()
@@ -192,6 +207,7 @@ public class RecyclingGame : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
+        gameOverScreenUI.SetActive(true);
         Debug.Log("Game Over");
     }
 

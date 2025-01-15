@@ -1392,7 +1392,11 @@ MonoBehaviour:
   LevelText: {fileID: 1104386186}
   score: 0
   mixedTrashBin: {fileID: 1496007510}
+  NextLevelPoint: 100
+  level: 1
   resultEffectUI: {fileID: 696338918}
+  pauseScreenUI: {fileID: 0}
+  gameOverScreenUI: {fileID: 0}
 --- !u!4 &803559428
 Transform:
   m_ObjectHideFlags: 0
@@ -1425,7 +1429,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &842365721
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2124,7 +2128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1104386185
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2895,7 +2899,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.39, y: 1.55}
+    oldSize: {x: 1.21, y: 1.55}
     newSize: {x: 1.39, y: 1.55}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
