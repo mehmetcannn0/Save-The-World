@@ -28,6 +28,8 @@ public class RecyclingGame : MonoBehaviour
     public int level = 1;
 
     public GameObject resultEffectUI;
+    public GameObject pauseScreenUI;
+    public GameObject gameOverScreenUI;
     void Start()
     { 
         InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);  
@@ -175,5 +177,32 @@ public class RecyclingGame : MonoBehaviour
         {
             resultEffectUI.SetActive(false);
         });
+    }
+    public void PauseGame()
+    {
+        pauseScreenUI.SetActive(true);
+
+        Time.timeScale = 0;
+    }
+    public void ResumeGame()
+    {
+        pauseScreenUI.SetActive(false);
+        Time.timeScale = 1;
+    }
+    public void GameOver()
+    {
+        Time.timeScale = 0;
+        Debug.Log("Game Over");
+    }
+
+    public void BackToMenuScene() {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
+
+    }
+    public void RestartGame()
+    {
+        Time.timeScale = 1;
+        UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
 }
