@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using DG.Tweening;
-using UnityEditor.SearchService;
 
 public class TutorialManager : MonoBehaviour
 {
@@ -33,7 +32,7 @@ public class TutorialManager : MonoBehaviour
         for (int i = 0; i < wasteObjects.Count; i++)
         {
             // Atýðý hedef pozisyona hareket ettir
-            wasteObjects[i].transform.DOMove(targetPositions[i].position, animationDuration)
+            wasteObjects[i].transform.DOMove(new Vector3(targetPositions[i].position.x, targetPositions[i].position.y, wasteObjects[i].transform.position.z), animationDuration)
                 .SetEase(Ease.InOutQuad);
 
             // Animasyon tamamlanana kadar bekle
@@ -51,4 +50,5 @@ public class TutorialManager : MonoBehaviour
         StopAllCoroutines();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
     }
+   
 }

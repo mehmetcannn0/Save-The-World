@@ -24,7 +24,8 @@ public class RecyclingGame : MonoBehaviour
     public GameObject mixedTrashBin;
 
     private List<GameObject> activeWastes = new List<GameObject>();
-    private int NextLevelPoint = 100;
+    public int NextLevelPoint = 100;
+    public int level = 1;
 
     public GameObject resultEffectUI;
     void Start()
@@ -96,13 +97,12 @@ public class RecyclingGame : MonoBehaviour
         }
     }
 
-
-
+     
     public void OnWasteDropped(GameObject waste)
     {
         foreach (var bin in recyclingBins)
         { 
-            if (Vector3.Distance(waste.transform.position, bin.gameObject.transform.position) < 1f)
+            if (Vector3.Distance(waste.transform.position, bin.gameObject.transform.position) < 3f)
             {
                 if (waste.gameObject.tag == bin.gameObject.tag)
                 {
@@ -133,17 +133,25 @@ public class RecyclingGame : MonoBehaviour
     {
         scoreText.text = "Puan: " + score;
 
-        if(score == NextLevelPoint)
+
+        if (score == NextLevelPoint)
         {
             Debug.Log("Next Level");
             NextLevel();
-            LevelText.text = "Level: " + NextLevelPoint / 100 ;
-        }else if (score == NextLevelPoint - 100 && score != 0)
+        }else if (score == NextLevelPoint - 110 && score != 0)
         {
             Debug.Log("Previous Level");
-            PreviousLevel();
-            LevelText.text = "Level: " + NextLevelPoint / 100;  
+            if (level>1)
+            {
+                PreviousLevel();
+                
+            }
         }
+
+        level = NextLevelPoint / 100;
+
+        LevelText.text = "Level: " + level;
+
     }
     void WrongBin()
     {
