@@ -37,7 +37,7 @@ public class ScreenAdjuster : MonoBehaviour
     void AdjustSpawnAndMixedBin()
     {
         Vector3 screenBounds = Camera.main.ScreenToWorldPoint(new Vector3(Screen.width, Screen.height, 0));
-        spawnPoint.position = new Vector3(-screenBounds.x + 0.5f, conveyorBelt.position.y, -2);
+        spawnPoint.position = new Vector3(-screenBounds.x + 0.5f, conveyorBelt.position.y+2, -2);
         mixedWasteBin.position = new Vector3(screenBounds.x - 0.5f, conveyorBelt.position.y, -2);
     }
 

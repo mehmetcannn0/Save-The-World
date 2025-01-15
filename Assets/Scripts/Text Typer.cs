@@ -7,12 +7,7 @@ public class TextTyper : MonoBehaviour
     public TextMeshProUGUI tutorialText; // TextMeshPro bileþeni
     public float typingSpeed = 0.05f;    // Harf yazma hýzý
 
-    private void Start()
-    {
-        // Örnek bir metni animasyonlu olarak yazdýr
-        StartTyping("Hoþ geldiniz! Atýklarýn ve atýk kutularýnýn türlerini öðrenin.");
-    }
-
+    
     public void StartTyping(string text)
     {
         StartCoroutine(TypeText(text));

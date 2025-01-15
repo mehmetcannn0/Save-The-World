@@ -9,10 +9,14 @@ public class TutorialManager : MonoBehaviour
     public List<Transform> targetPositions; // Hedef pozisyonlar (kutularýn konumu)
     public float animationDuration = 1.5f; // Animasyon süresi
     public Transform conveyorBelt;
+    public GameObject nextButtonUI;
+    public GameObject closeButtonUI;
+    public GameObject InfoUI;
 
-   
-        
-   
+
+
+
+
     void WastePositionAdjuster()
     {
         for (int i = 0; i < wasteObjects.Count; i++)
@@ -24,7 +28,6 @@ public class TutorialManager : MonoBehaviour
     private void Start()
     {
         WastePositionAdjuster();
-        StartCoroutine(PlayTutorialSequence());
     }
 
     private IEnumerator PlayTutorialSequence()
@@ -44,7 +47,15 @@ public class TutorialManager : MonoBehaviour
         StartCoroutine(PlayTutorialSequence());
         Debug.Log("Tutorial tamamlandý!");
     }
-    
+    public void NextStep()
+    {
+        closeButtonUI.SetActive(true);
+        nextButtonUI.SetActive(false);
+        InfoUI.SetActive(false);
+        StartCoroutine(PlayTutorialSequence());
+        TextTyper textTyper = FindObjectOfType<TextTyper>();
+        textTyper.StartTyping("Hoþ geldiniz! Atýklarýn ve atýk kutularýnýn türlerini öðrenin.");
+    }
     public void CloseTutorial()
     {
         StopAllCoroutines();

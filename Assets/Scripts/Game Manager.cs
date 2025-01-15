@@ -73,6 +73,14 @@ public class RecyclingGame : MonoBehaviour
         activeWastes.Add(waste);
          
         var dragHandler = waste.AddComponent<WasteDragHandler>();
+        if (waste.GetComponent<WasteDragHandler>() !=null)
+        {
+            Debug.Log(" null degýl");
+        }
+        else
+        {
+            Debug.Log(" null");
+        }
         dragHandler.gameManager = this;
     }
 
