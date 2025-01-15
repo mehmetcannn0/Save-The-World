@@ -7,7 +7,7 @@ public class ScreenAdjuster : MonoBehaviour
     public Transform mixedWasteBin;
     public Transform[] recyclingBins; 
 
-    void Start()
+    void Awake()
     {
         AdjustConveyorBelt();
         AdjustSpawnAndMixedBin();
@@ -25,7 +25,7 @@ public class ScreenAdjuster : MonoBehaviour
         if (beltSprite != null)
         {
             float beltWidth = beltSprite.bounds.size.x;
-            float targetWidth = screenBounds.x * 2; 
+            float targetWidth = screenBounds.x * 2.2f; 
             float scaleFactor = targetWidth / beltWidth;
             conveyorBelt.localScale = new Vector3(scaleFactor, conveyorBelt.localScale.y, conveyorBelt.localScale.z);
             float yOffset = screenBounds.y * 0.75f;

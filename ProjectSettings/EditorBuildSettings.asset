@@ -6,7 +6,13 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MainScene.unity
+    path: Assets/Scenes/MenuScene.unity
+    guid: 187ccf1483ffcea42b3eae3aaf8cdbcb
+  - enabled: 1
+    path: Assets/Scenes/TutorialScene.unity
+    guid: 54e23567e26436c439ade14676f15757
+  - enabled: 1
+    path: Assets/Scenes/GameScene.unity
     guid: 3fc8acdd13e6c734bafef6554d6fdbcd
   m_configObjects:
     com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: 0ed1e49d42c223c4fba81adf6e2ec6a4, type: 2}

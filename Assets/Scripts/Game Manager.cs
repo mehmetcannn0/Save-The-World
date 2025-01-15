@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using TMPro;
+using DG.Tweening;
 
 public class RecyclingGame : MonoBehaviour
 {
@@ -25,6 +26,7 @@ public class RecyclingGame : MonoBehaviour
     private List<GameObject> activeWastes = new List<GameObject>();
     private int NextLevelPoint = 100;
 
+    public GameObject resultEffectUI;
     void Start()
     { 
         InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);  
@@ -84,7 +86,7 @@ public class RecyclingGame : MonoBehaviour
 
                     Debug.Log("banttan cýktý " + waste.gameObject.tag);
                     score -= 10;
-
+                    WrongBin();
                     UpdateScore();
 
                     Destroy(waste);
@@ -106,6 +108,7 @@ public class RecyclingGame : MonoBehaviour
                 {
                     Debug.Log("Doðru kategoriye atýldý: " + bin.gameObject.tag);
                     score += 10;  
+                    CorretBin();
                     UpdateScore();
                     Destroy(waste);
                     activeWastes.Remove(waste);
@@ -114,6 +117,7 @@ public class RecyclingGame : MonoBehaviour
                 {
                     Debug.Log("Yanlýþ kategoriye atýldý: " + bin.gameObject.tag);
                     score -= 10;  
+                    WrongBin();
                     UpdateScore();
                     Destroy(waste);
                     activeWastes.Remove(waste);
@@ -140,5 +144,28 @@ public class RecyclingGame : MonoBehaviour
             PreviousLevel();
             LevelText.text = "Level: " + NextLevelPoint / 100;  
         }
+    }
+    void WrongBin()
+    {
+        resultEffectUI.SetActive(true);
+        Image resultImage = resultEffectUI.GetComponent<Image>();
+        resultImage.color = new Color(250, 0, 0, 0);
+        Color targetColor = new Color(250,0,0,0.2f);
+        resultImage.DOColor(targetColor, 1).OnComplete(() =>
+        { 
+            resultEffectUI.SetActive(false);
+        });
+    }
+
+    void CorretBin()
+    { 
+        resultEffectUI.SetActive(true);
+        Image resultImage = resultEffectUI.GetComponent<Image>();
+        resultImage.color = new Color(0, 250, 0,0);
+        Color targetColor = new Color(0, 250, 0, 0.2f);
+        resultImage.DOColor(targetColor, 1).OnComplete(() =>
+        {
+            resultEffectUI.SetActive(false);
+        });
     }
 }
