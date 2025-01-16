@@ -293,7 +293,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &203660137
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1324,6 +1324,7 @@ MonoBehaviour:
   pauseScreenUI: {fileID: 1457065707}
   gameOverScreenUI: {fileID: 2036861659}
   gameOverScreenScoreUI: {fileID: 1463520775}
+  musicManager: {fileID: 0}
 --- !u!4 &803559428
 Transform:
   m_ObjectHideFlags: 0

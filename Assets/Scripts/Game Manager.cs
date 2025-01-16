@@ -244,6 +244,7 @@ public class RecyclingGame : MonoBehaviour
     }
     public void MuteAndUnmuteAllMusic()
     {
+        Debug.Log("Mute and Unmute");
         musicManager.MuteAndUnmuteAllMusic();
     }
 }
