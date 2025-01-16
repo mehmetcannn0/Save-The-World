@@ -34,8 +34,10 @@ public class RecyclingGame : MonoBehaviour
     public GameObject resultEffectUI;
     public GameObject pauseScreenUI;
     public GameObject gameOverScreenUI;
+    public TextMeshProUGUI gameOverScreenScoreUI;
+     
     void Start()
-    { 
+    {        
         InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);  
         UpdateScore();
     }
@@ -215,6 +217,7 @@ public class RecyclingGame : MonoBehaviour
     public void GameOver()
     {
         Time.timeScale = 0;
+        gameOverScreenScoreUI.text = "Puanýnýz: " + score;
         gameOverScreenUI.SetActive(true);
         Debug.Log("Game Over");
     }
@@ -228,5 +231,9 @@ public class RecyclingGame : MonoBehaviour
     {
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
+    }
+    public void MuteAndUnmuteAllMusic()
+    {
+        MusicManager.Instance.MuteAndUnmuteAllMusic();
     }
 }

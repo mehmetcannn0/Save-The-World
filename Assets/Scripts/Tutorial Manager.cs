@@ -59,6 +59,7 @@ public class TutorialManager : MonoBehaviour
     public void CloseTutorial()
     {
         StopAllCoroutines();
+        DOTween.KillAll();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
     }
    
