@@ -152,6 +152,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8a4ce7db66e3a246ab4ec3ce6261e95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buttons:
+  - {fileID: 1247569169}
+  - {fileID: 497400720}
 --- !u!4 &192546075
 Transform:
   m_ObjectHideFlags: 0
@@ -290,7 +293,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -903,7 +906,7 @@ AudioSource:
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -1632,8 +1635,8 @@ MonoBehaviour:
   correctSource: {fileID: 411698589}
   wrongSource: {fileID: 2048212722}
   endSource: {fileID: 1049798372}
-  muteUI: {fileID: 1247569169}
-  unmuteUI: {fileID: 497400720}
+  muteUI: {fileID: 0}
+  unmuteUI: {fileID: 0}
 --- !u!4 &1266927472
 Transform:
   m_ObjectHideFlags: 0
@@ -1937,7 +1940,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1429662071
 RectTransform:
   m_ObjectHideFlags: 0

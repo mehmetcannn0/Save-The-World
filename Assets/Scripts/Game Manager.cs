@@ -242,9 +242,9 @@ public class RecyclingGame : MonoBehaviour
         Time.timeScale = 1;
         UnityEngine.SceneManagement.SceneManager.LoadScene("GameScene");
     }
-    public void MuteAndUnmuteAllMusic()
-    {
-        Debug.Log("Mute and Unmute");
-        musicManager.MuteAndUnmuteAllMusic();
-    }
+    //public void MuteAndUnmuteAllMusic()
+    //{
+    //    Debug.Log("Mute and Unmute");
+    //    musicManager.MuteAndUnmuteAllMusic();
+    //}
 }

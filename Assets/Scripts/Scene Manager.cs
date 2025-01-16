@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class SceneManager : MonoBehaviour
 {
-  
+
+    public GameObject[] buttons;
     public void OpenTutorialScene()
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("TutorialScene");
