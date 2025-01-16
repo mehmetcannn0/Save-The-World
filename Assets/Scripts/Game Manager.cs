@@ -35,9 +35,14 @@ public class RecyclingGame : MonoBehaviour
     public GameObject pauseScreenUI;
     public GameObject gameOverScreenUI;
     public TextMeshProUGUI gameOverScreenScoreUI;
-     
+
+    public MusicManager musicManager;
+
     void Start()
     {        
+        musicManager = FindObjectOfType<MusicManager>();
+        musicManager.StopMainMusic();
+        musicManager.PlayGameMusic();
         InvokeRepeating("SpawnWaste", 1f, spawnRepeateRate);  
         UpdateScore();
     }
@@ -182,6 +187,7 @@ public class RecyclingGame : MonoBehaviour
     }
     void WrongBin()
     {
+        musicManager.WrongAudioClip();
         resultEffectUI.SetActive(true);
         Image resultImage = resultEffectUI.GetComponent<Image>();
         resultImage.color = new Color(250, 0, 0, 0);
@@ -194,6 +200,7 @@ public class RecyclingGame : MonoBehaviour
 
     void CorretBin()
     { 
+        musicManager.CorrextCoinAudioClip();
         resultEffectUI.SetActive(true);
         Image resultImage = resultEffectUI.GetComponent<Image>();
         resultImage.color = new Color(0, 250, 0,0);
@@ -216,6 +223,7 @@ public class RecyclingGame : MonoBehaviour
     }
     public void GameOver()
     {
+        musicManager.EndAudioClip();
         Time.timeScale = 0;
         gameOverScreenScoreUI.text = "Puanýnýz: " + score;
         gameOverScreenUI.SetActive(true);
@@ -224,6 +232,8 @@ public class RecyclingGame : MonoBehaviour
 
     public void BackToMenuScene() {
         Time.timeScale = 1;
+        musicManager.StopGameMusic();
+        musicManager.PlayMainMusic();
         UnityEngine.SceneManagement.SceneManager.LoadScene("MenuScene");
 
     }
@@ -234,6 +244,6 @@ public class RecyclingGame : MonoBehaviour
     }
     public void MuteAndUnmuteAllMusic()
     {
-        MusicManager.Instance.MuteAndUnmuteAllMusic();
+        musicManager.MuteAndUnmuteAllMusic();
     }
 }

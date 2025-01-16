@@ -4,8 +4,8 @@ using TMPro;
 
 public class TextTyper : MonoBehaviour
 {
-    public TextMeshProUGUI tutorialText; // TextMeshPro bileþeni
-    public float typingSpeed = 0.05f;    // Harf yazma hýzý
+    public TextMeshProUGUI tutorialText; 
+    public float typingSpeed = 0.05f;    
 
     
     public void StartTyping(string text)
@@ -15,11 +15,11 @@ public class TextTyper : MonoBehaviour
 
     private IEnumerator TypeText(string text)
     {
-        tutorialText.text = ""; // Metni temizle
+        tutorialText.text = ""; 
         foreach (char letter in text.ToCharArray())
         {
-            tutorialText.text += letter; // Harf harf ekle
-            yield return new WaitForSeconds(typingSpeed); // Bekle
+            tutorialText.text += letter; 
+            yield return new WaitForSeconds(typingSpeed);
         }
     }
 }
