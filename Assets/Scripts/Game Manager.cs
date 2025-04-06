@@ -87,6 +87,7 @@ public class RecyclingGame : MonoBehaviour
         else
         {
             Debug.Log(" null");
+            Debug.Log("hata var !!!");
         }
         dragHandler.gameManager = this;
     }
@@ -105,17 +106,15 @@ public class RecyclingGame : MonoBehaviour
                  
                 if (waste.transform.position.x > mixedBinX)
                 {
-
                     Debug.Log("banttan cýktý " + waste.gameObject.tag);
                     score -= 10;
-                    heartsUI[health].GetComponent<Image>().sprite= hearts[0];
+                    heartsUI[health - 1 ].GetComponent<Image>().sprite= hearts[0];
                     health -= 1;
-
                     WrongBin();
                     UpdateScore();
-
                     Destroy(waste);
                     activeWastes.RemoveAt(i);
+                     
                 }
             }
         }
@@ -159,8 +158,6 @@ public class RecyclingGame : MonoBehaviour
    public void UpdateScore()
     {
         scoreText.text = "Puan: " + score;
-
-
         if (score == NextLevelPoint)
         {
             Debug.Log("Next Level");
@@ -200,7 +197,7 @@ public class RecyclingGame : MonoBehaviour
 
     void CorretBin()
     { 
-        musicManager.CorrextCoinAudioClip();
+        musicManager.CorrectCoinAudioClip();
         resultEffectUI.SetActive(true);
         Image resultImage = resultEffectUI.GetComponent<Image>();
         resultImage.color = new Color(0, 250, 0,0);

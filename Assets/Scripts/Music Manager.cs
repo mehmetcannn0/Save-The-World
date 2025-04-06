@@ -59,7 +59,7 @@ public class MusicManager : MonoBehaviour
         gameMusicSource.Stop();
         
     }
-    public void CorrextCoinAudioClip()
+    public void CorrectCoinAudioClip()
     {
         correctSource.Play();
 
